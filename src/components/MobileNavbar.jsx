@@ -1,0 +1,70 @@
+import { ListStyle } from "./Navbar";
+
+export const UiCircleStyle =
+  "w-[130px] h-[130px] md:w-[180px] md:h-[180px] origin-top-left rotate-[-35.39deg] rounded-[117px] border-b-2 border-sky-500";
+
+const MobileNavbar = ({ isOpen, setIsMenuOpen }) => {
+  const handleScroll = (sectionId) => {
+    if (isOpen) setIsMenuOpen(false);
+    document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="w-screen fixed top-0 z-20">
+      <div className="w-1/2 h-screen flex flex-col p-8 bg-background">
+        <div className={`${UiCircleStyle} -ml-20 -mt-10 `} />
+        <ul>
+          <li className="mb-5">
+            <a
+              className={`after:content-[''] ${ListStyle}`}
+              onClick={() => handleScroll("hero")}
+            >
+              Home
+            </a>
+          </li>
+
+          <li className="mb-5">
+            <a
+              className={`after:content-[''] ${ListStyle}`}
+              onClick={() => handleScroll("skills")}
+            >
+              Skills
+            </a>
+          </li>
+
+          <li className="mb-5">
+            <a
+              className={`after:content-[''] ${ListStyle}`}
+              onClick={() => handleScroll("experience")}
+            >
+              Work Experience
+            </a>
+          </li>
+
+          <li className="mb-5">
+            <a
+              className={`after:content-[''] ${ListStyle}`}
+              onClick={() => handleScroll("about")}
+            >
+              About Me
+            </a>
+          </li>
+        </ul>
+
+        <button
+          className="h-10 bg-primary text-white text-xs md:text-sm px-6 rounded hover:bg-blue-200 hover:text-primary md:block"
+        //   onClick={handleScroll("contact")}
+        >
+          Contact Us
+        </button>
+      </div>
+
+      <div
+        onClick={() => setIsMenuOpen(false)}
+        className="w-screen h-screen bg-overlayBg fixed top-0 -z-10"
+      />
+    </div>
+  );
+};
+
+export default MobileNavbar;
