@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
 import WorkExperience from "./components/WorkExperience";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <WorkExperience />
       <AboutMe />
       <Contact />
+      <Footer />
     </div>
   );
 };

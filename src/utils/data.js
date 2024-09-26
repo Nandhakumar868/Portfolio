@@ -35,13 +35,20 @@ export const SKILLS = [
   },
 ];
 
-export const WORK_EXPERIENC = [
+export const WORK_EXPERIENCE = [
   {
     id: "01",
     company: "T-Machine",
     position: "Intern",
     duration: "Jan 2024",
-    description: "Intern work",
+    description: "Intern work Intern Intern Intern Intern Intern InternIntern Intern Intern Intern Intern Intern Intern Intern",
+  },
+  {
+    id: "02",
+    company: "T-Machine",
+    position: "Intern",
+    duration: "Jan 2024",
+    description: "Intern work Intern Intern Intern Intern Intern InternIntern Intern Intern Intern Intern Intern Intern Intern Intern Intern Intern Intern Intern Intern",
   },
 ];
 

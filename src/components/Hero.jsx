@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { UiCircleStyle } from "./MobileNavbar";
 
-const primaryButtonStyle =
+export const primaryButtonStyle =
   "h-9 md:h-11 bg-primary textwhite text-sm px-6 rounded border border-primary hover:bg-transparent hover:text-primary";
 
 const heroImageStyle =
