@@ -1,13 +1,13 @@
-import { WORK_EXPERIENCE } from "../utils/data";
+import { WORK_EXPERIENCE } from "../../constants/data";
 
-const WorkExperience = () => {
+const Experience = () => {
   return (
     <section
-      className="max-w-screen-xl mx-auto pb-0 md:pb-20 px-6 md:px-20 relative"
+      className="max-w-screen-xl lg:mx-32 pb-0 md:pb-20 px-6 md:px-20 relative overflow-hidden"
       id="experience"
     >
       <h5 className="text-primary text-2xl md:text-3xl font-semibold text-center pb-14 md:pb-4">
-        Work Experience
+        Experience
       </h5>
 
       {WORK_EXPERIENCE.map((item, index) => (
@@ -17,7 +17,7 @@ const WorkExperience = () => {
           company={item.company}
           position={item.position}
           duration={item.duration}
-          description={item.description}
+          description={item.responsibility}
           isLast={WORK_EXPERIENCE.length === index + 1}
         />
       ))}
@@ -67,4 +67,4 @@ const WorkExperienceCard = ({
   );
 };
 
-export default WorkExperience;
+export default Experience;

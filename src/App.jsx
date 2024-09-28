@@ -1,23 +1,19 @@
-import AboutMe from "./components/AboutMe";
-import Contact from "./components/Contact";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
-import WorkExperience from "./components/WorkExperience";
-import Footer from "./components/Footer";
+import Contact from "./components/main/Contact";
+import Experience from "./components/main/Experience";
+import Hero from "./components/main/Hero";
+import Navbar from "./components/main/Navbar";
+import Projects from "./components/main/Projects";
+import Skills from "./components/main/Skills";
 
 const App = () => {
   return (
     <div className="bg-background">
-      <div style={{ backgroundImage: "url()", backgroundPosition: "50% 50%" }}>
-        <Navbar />
-        <Hero />
-      </div>
+      <Navbar />
+      <Hero />
+      <Experience />
       <Skills />
-      <WorkExperience />
-      <AboutMe />
+      <Projects />
       <Contact />
-      <Footer />
     </div>
   );
 };
