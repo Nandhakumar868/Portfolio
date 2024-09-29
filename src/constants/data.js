@@ -78,7 +78,8 @@ export const LINKS = {
   github: "https://github.com/Nandhakumar868/",
   linkedin: "https://www.linkedin.com/in/nandhakumar-s-/",
   leetcode: "https://leetcode.com/u/Nandhakumar_868/",
-  resume: "",
+  resume:
+    "https://drive.google.com/file/d/1AgHMrJAodH_lF9O6rqcnuAP4qYwxKqHl/view?usp=sharing",
 };
 
 export const SKILLS = {

@@ -8,4 +8,4 @@ export const primaryButtonStyle =
   "h-9 md:h-11 bg-primary text-white text-sm px-6 rounded border border-primary hover:bg-transparent hover:text-primary overflow-hidden";
 
 export const inputBoxStyle =
-  "bg-gradient-to-br from-blue-950 to-slate-900 rounded border border-blue-800/40 px-4 py-3 placeholder:text-slate-400 placeholder:text-sm mb-5 focus:outline-none focus:border-cyan-500 focus:border-2";
+  "bg-gradient-to-br from-blue-950 to-slate-900 rounded border border-blue-800/40 px-4 py-3 placeholder:text-slate-400 placeholder:text-sm  focus:outline-none focus:border-cyan-500 focus:border-2";

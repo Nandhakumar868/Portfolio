@@ -1,8 +1,48 @@
 import { IoMdMail } from "react-icons/io";
-import { PROFILE_DATA } from "../../constants/data";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-import { MdOutlineWeb } from "react-icons/md";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { inputBoxStyle, primaryButtonStyle } from "../sub/styles";
+import { PROFILE_DATA } from "../../constants/data";
+
+// validation schema
+const validationSchema = Yup.object({
+  fullName: Yup.string().required("Full Name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  message: Yup.string().required("Message is required"),
+});
+
+// Function to send email via EmailJS
+const sendEmail = (values, resetForm, setSubmitting) => {
+  emailjs
+    .send(
+      "service_07jlw3g",
+      "template_pc21urg",
+      {
+        to_name: values.fullName,
+        to_email: values.email,
+        message: values.message,
+      },
+      "gKg9Aj_i-99vIbIxY"
+    )
+    .then(
+      (response) => {
+        toast.success("Message sent successfully!");
+        resetForm();
+        setSubmitting(false);
+      },
+      (error) => {
+        toast.error("Failed to send message. Please try again later.");
+        setSubmitting(false);
+      }
+    );
+};
 
 const Contact = () => {
   return (
@@ -28,36 +68,94 @@ const Contact = () => {
           <h5 className="md:hidden text-cyan-300 text-lg font-medium mt-4 pb-5">
             Contact Form
           </h5>
-          <form className="flex flex-col">
-            <input
-              type="text"
-              name="Full name"
-              placeholder="Full Name"
-              id=""
-              className={`${inputBoxStyle}`}
-              autoComplete="off"
-            />
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              id=""
-              className={`${inputBoxStyle}`}
-              autoComplete="off"
-            />
+          <Formik
+            initialValues={{ fullName: "", email: "", message: "" }}
+            validationSchema={validationSchema}
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+              sendEmail(values, resetForm, setSubmitting);
+            }}
+          >
+            {({ isSubmitting }) => (
+              <Form className="flex flex-col">
+                {/* <Field
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  className={`${inputBoxStyle} ${ErrorMessage ? "mb-5" : ""}`}
+                />
+                <ErrorMessage
+                  name="fullName"
+                  component="div"
+                  className="text-red-500 text-xs mb-5"
+                /> */}
 
-            <textarea
-              name="message"
-              placeholder="Message"
-              id=""
-              rows="3"
-              className={`${inputBoxStyle}`}
-              autoComplete="off"
-            />
+                <Field name="fullName">
+                  {({ field, meta }) => (
+                    <input
+                      {...field}
+                      type="text"
+                      placeholder="Full Name"
+                      className={`${inputBoxStyle} text-white ${
+                        meta.touched && meta.error ? "mb-1" : "mb-5"
+                      }`}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="fullName"
+                  component="div"
+                  className="text-red-500 text-xs mb-5"
+                />
 
-            <button className={`${primaryButtonStyle}`}>SUBMIT</button>
-          </form>
+                <Field name="email">
+                  {({ field, meta }) => (
+                    <input
+                      {...field}
+                      type="email"
+                      placeholder="Email"
+                      className={`${inputBoxStyle} text-white  ${
+                        meta.touched && meta.error ? "mb-1" : "mb-5"
+                      }`}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500 text-xs mb-5"
+                />
+
+                <Field name="message">
+                  {({ field, meta }) => (
+                    <textarea
+                      {...field}
+                      placeholder="Message"
+                      className={`${inputBoxStyle} text-white ${
+                        meta.touched && meta.error ? "mb-1" : "mb-5"
+                      }`}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="message"
+                  component="div"
+                  className="text-red-500 text-xs mb-5"
+                />
+
+                <button
+                  type="submit"
+                  className={`${primaryButtonStyle}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting" : "SUBMIT"}
+                </button>
+              </Form>
+            )}
+          </Formik>
+
+          {/* React Toastify container for notifications */}
+          <ToastContainer />
         </div>
       </div>
     </section>
