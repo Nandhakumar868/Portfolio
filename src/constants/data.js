@@ -77,7 +77,7 @@ export const PROFILE_DATA = {
 export const LINKS = {
   github: "https://github.com/Nandhakumar868/",
   linkedin: "https://www.linkedin.com/in/nandhakumar-s-/",
-  leetcode: "https://leetcode.com/u/Nandhakumar_868/",
+  leetcode: "https://leetcode.com/u/Nandhakumar_86/",
   resume:
     "https://drive.google.com/file/d/1AgHMrJAodH_lF9O6rqcnuAP4qYwxKqHl/view?usp=sharing",
 };
