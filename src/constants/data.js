@@ -1,5 +1,22 @@
 export const PROJECTS_LIST = [
   {
+    title: "Event Sphere",
+    subheader: "Event Management application",
+    image: "/project_images/event-sphere.png",
+    content:
+      "A simple event management application to post events and see number of attendees in real time",
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "Redux",
+      "Node Js",
+      "Express",
+      "MongoDB",
+    ],
+    code: "https://github.com/Nandhakumar868/Event-Sphere",
+    live: "https://event-sphere-project.netlify.app/",
+  },
+  {
     title: "Fast React Pizza",
     subheader: "Food delivering application",
     image: "/project_images/fast-react-pizza.png",
